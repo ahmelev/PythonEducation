@@ -1,35 +1,21 @@
-#
-# for i in range(1, 101):
-#     if (1 < i % 10 < 5) or (i % 10 == 0):
-#         print(f"{i} процента")
-#     elif 5 <= i % 10 <= 9:
-#         print(f"{i} процентов")
-#     else:
-#         print(f"{i} процент")
-
-
 for i in range(1, 101):
-    if (5 <= i % 10 <= 9) or (10 <= i <= 14):
+    if (1 < i % 10 < 5) and (i != 12) and (i != 13) and (i != 14):
         print(f"{i} процента")
-    elif (1 < i % 10 < 5) or (i % 10 == 0):
-        print(f"{i} процентов")
-    else:
+    elif (i % 10 == 1) and (i != 11):
         print(f"{i} процент")
+    else:
+        print(f"{i} процентов")
 
-
-# percent = input("Введите целое число: ")
-# if isinstance(percent, int):
-#     if percent > 0:
-#         if (1 < percent % 10 < 5) or (percent % 10 == 0):
-#             print(f"{percent} процента")
-#         elif 5 <= percent % 10 <= 9:
-#             print(f"{percent} процентов")
-#         else:
-#             print(f"{percent} процент")
+# percent = int(input("Введите целое число: "))
+# if percent > 0:
+#     if (1 < percent % 10 < 5) and (percent != 12) and (percent != 13) and (percent != 14):
+#         print(f"{percent} процента")
+#     elif (percent % 10 == 1) and (percent != 11):
+#         print(f"{percent} процент")
 #     else:
-#         print("Вы ввели отрицательное число!")
+#         print(f"{percent} процентов")
 # else:
-#     print("Вы ввели не число число или не целое число!")
+#     print("Вы ввели отрицательное число!")
 
 # Реализовать склонение слова «процент» во фразе «N процентов». Вывести эту фразу на экран отдельной строкой для
 # каждого из чисел в интервале от 1 до 100:
