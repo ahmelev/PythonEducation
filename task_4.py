@@ -10,7 +10,7 @@ start_list = ['инженер-конструктор Игорь', 'главны�
 for i, v in enumerate(start_list):
     idx = v.rfind(' ')
     name = v[idx+1:]
-    start_list[i] = f'Привет, {name.title()}!'
+    start_list[i] = f'Привет, {name.capitalize()}!'
 print(idx)
 print(name)
 print(start_list)
