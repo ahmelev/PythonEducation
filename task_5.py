@@ -6,6 +6,7 @@
 # копеек или 0 копеек (должно быть 07 коп или 00 коп).
 
 prices = [13, 57.8, 46.51, 97.99, 55.4, 104, 43.12, 86.7, 77.12, 76]
+prices_new = []
 
 print('\n')
 
@@ -20,13 +21,29 @@ for i, v in enumerate(prices):
 
 print('\n')
 
-print(f'Начальный список {prices}')
-print(f'Идентификатор начального списка {id(prices)}')
+# Какое-то корявое, но тоже решение предыдущей задачи, пытался убрать в конце вывода запятую
+for i, v in enumerate(prices):
+    k = str(v)
+    if k.rfind('.') == -1:
+        fl = 00
+    else:
+        idx = k.rfind('.')
+        fl = k[idx + 1:]
+    prices_new.append(f"{int(v)} руб {int(fl):02} коп, ")
+
+prices_f = prices_new[-1][0:len(prices_new[-1])-2]
+prices_new[-1] = prices_f
+print("".join(prices_new))
 
 print('\n')
 
 # Вывести цены, отсортированные по возрастанию, новый список не создавать (доказать, что объект списка после сортировки
 # остался тот же).
+print(f'Начальный список {prices}')
+print(f'Идентификатор начального списка {id(prices)}')
+
+print('\n')
+
 prices.sort()
 print(f'Отсортированный список по возрастанию {prices}')
 print(f'Идентификатор отсортированного списка по возрастанию {id(prices)}')
