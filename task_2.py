@@ -21,11 +21,8 @@ text_list = ['в', '5', 'часов', '17', 'минут', 'температур�
 for i, n in enumerate(text_list):
     if n.isdigit():
         text_list[i] = f'"{int(n):02}"'
-        print(i)
     else:
         if n.find('+') != -1:
             text_list[i] = f'"{n[:1]}{int(n[1:]):02}"'
-print(text_list)
+print(" ".join(text_list))
 
-text = " ".join(text_list)
-print(text)
