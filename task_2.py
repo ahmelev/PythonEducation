@@ -31,6 +31,6 @@ def num_translate(*args):
             print(num_translate_adv.get(num.lower()).capitalize())
 
 
-num = "nine"
+num = input("Введите значение: ")
 
 num_translate(num)
