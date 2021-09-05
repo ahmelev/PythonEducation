@@ -14,3 +14,21 @@
 #     }
 # }
 # Как поступить, если потребуется сортировка по ключам?
+
+name_fam = ("Яков Смирнов", "Иван Сергеев", "Инна Серова", "Петр Алексеев", "Илья Иванов", "Анна Савельева",
+            "Ян Морковников", "Крис Андропова", "Антон Куприянов")
+
+
+def thesaurus_adv(*args):
+    dict_name = {}
+    for name in name_fam:
+        key_n = name[0]
+        val = name.split()[-1]
+        key_f = val[0]
+        dict_name.setdefault(key_f, {})
+        dict_name.get(key_f).setdefault(key_n, [])
+        dict_name[key_f][key_n].append(name)
+    return sorted(dict_name.items())
+
+
+print(thesaurus_adv(name_fam))
