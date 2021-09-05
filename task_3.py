@@ -6,3 +6,17 @@
 
 # Подумайте: полезен ли будет вам оператор распаковки? Как поступить, если потребуется сортировка по ключам? Можно ли
 # использовать словарь в этом случае?
+
+names = ("Иван", "Мария", "Петр", "Илья", "Павел", "Сергей")
+
+
+def thesaurus(*args):
+    dict_name = {}
+    for first_name in names:
+        key = first_name[0]
+        dict_name.setdefault(key, [])
+        dict_name[key].append(first_name)
+    return dict_name
+
+
+print(thesaurus(names))
