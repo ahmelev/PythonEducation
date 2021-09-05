@@ -39,20 +39,20 @@ def get_jokes(n, flag=True):
                 """ бегаем по спискам рамках созданного диапазона принятого числа и создаем случайные фразы """
                 for a, b, c in zip(random.choices(nouns), random.choices(adverbs), random.choices(adjectives)):
                     """ удаляем использованные слова """
+                    joke.append(f'{a} {b} {c}')
                     nouns.remove(a)
                     adverbs.remove(b)
                     adjectives.remove(c)
-                    joke.append(f'{a} {b} {c}')
         else:
             """ Если количество нужных шуток больше длины списка """
             for i in range(int(len(nouns))):
                 """ бегаем по спискам рамках созданного диапазона длинны списка и создаем случайные фразы """
                 for a, b, c in zip(random.choices(nouns), random.choices(adverbs), random.choices(adjectives)):
                     """ удаляем использованные слова """
+                    joke.append(f'{a} {b} {c}')
                     nouns.remove(a)
                     adverbs.remove(b)
                     adjectives.remove(c)
-                    joke.append(f'{a} {b} {c}')
     else:
         """ Нам разрешили повторять слова """
         for i in range(int(n)):
