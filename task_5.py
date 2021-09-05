@@ -20,63 +20,52 @@ import random
 nouns = ["автомобиль", "лес", "огонь", "город", "дом"]
 adverbs = ["сегодня", "вчера", "завтра", "позавчера", "ночью"]
 adjectives = ["веселый", "яркий", "зеленый", "утопичный", "мягкий"]
+joke = []
 
 
-# def get_jokes(n, flag="Нет"):
-#     """
-#
-#     :param n: Количество создаваемых шуток
-#     :param flag: Повторяем слова в шутках? Да/Нет
-#     :return: Шутка готова
-#
-#     """
-#
-#     """ Проверяем, позволяют ли нам повторять слова в шутках """
-#     if flag == "Да":
-#         """ Нам разрешили повторять слова, бегаем по созданному диапазону в рамках числа, введенного пользователем """
-#         for i in range(int(n)):
-#             """ Создаем случайные шутки из списков """
-#             print(f'{random.choice(nouns)}, {random.choice(adverbs)}, {random.choice(adjectives)}')
-#     elif flag == "Нет":
-#         """ Нам не разрешили повторять слова, бегаем по созданному диапазону в рамках числа, введенного пользователем"""
-#         if int(n) < len(nouns):
-#             """если число шуток меньше длинны справочника, то бегаем по созданному диапазону в рамках числа,
-#             введенного пользователем, присваиваем случайное значение из справочников переменным и удаляем эти значения
-#             из справочников """
-#             for i in range(int(n)):
-#                 a = random.choice(nouns)
-#                 b = random.choice(adverbs)
-#                 c = random.choice(adjectives)
-#                 nouns.remove(a)
-#                 adverbs.remove(b)
-#                 adjectives.remove(c)
-#                 print(f'{a}, {b}, {c}')
-#         else:
-#             """если число шуток больше длинны справочника, то бегаем по созданному диапазону в рамках длинны
-#             справочника, присваиваем случайное значение из справочников переменным и удаляем эти значения из
-#             справочников """
-#             for i in range(int(len(nouns))):
-#                 a = random.choice(nouns)
-#                 b = random.choice(adverbs)
-#                 c = random.choice(adjectives)
-#                 nouns.remove(a)
-#                 adverbs.remove(b)
-#                 adjectives.remove(c)
-#                 print(f'{a}, {b}, {c}')
-#     else:
-#         """ Если введи некорректное слово для повтора слов, выводим ошибку """
-#         print("Вы ввели не регламентированное слово для повтора")
-#
-#
-# """ Запуск функции """
-# get_jokes(input("Какое количество шуток создаем?: "), flag=input("Повторять слова в шутках? (Да/Нет): "))
+def get_jokes(n, flag=True):
+    """
+    Функция для создания случайных шуток из трех списков
 
-def get_jokes(n, flag=None):
+    :param n: количество шуток
+    :param flag: по умолчанию True (уникальные шутки)
+    :return: Готовые шутки
+    """
     if flag:
+        """ Нам не разрешили повторять слова """
+        if int(n) <= len(nouns):
+            """ Если количество нужных шуток меньше или равно длине списка """
+            for i in range(int(n)):
+                """ бегаем по спискам рамках созданного диапазона принятого числа и создаем случайные фразы """
+                for a, b, c in zip(random.choices(nouns), random.choices(adverbs), random.choices(adjectives)):
+                    """ удаляем использованные слова """
+                    nouns.remove(a)
+                    adverbs.remove(b)
+                    adjectives.remove(c)
+                    joke.append(f'{a} {b} {c}')
+        else:
+            """ Если количество нужных шуток больше длины списка """
+            for i in range(int(len(nouns))):
+                """ бегаем по спискам рамках созданного диапазона длинны списка и создаем случайные фразы """
+                for a, b, c in zip(random.choices(nouns), random.choices(adverbs), random.choices(adjectives)):
+                    """ удаляем использованные слова """
+                    nouns.remove(a)
+                    adverbs.remove(b)
+                    adjectives.remove(c)
+                    joke.append(f'{a} {b} {c}')
+    else:
+        """ Нам разрешили повторять слова """
         for i in range(int(n)):
+            """ бегаем по спискам рамках созданного диапазона принятого числа и создаем случайные фразы """
             for a, b, c in zip(random.choices(nouns), random.choices(adverbs), random.choices(adjectives)):
-                print(a, b, c)
+                joke.append(f'{a} {b} {c}')
+    return joke
 
 
-""" Запуск функции """
-get_jokes(3)
+""" Запуск функции, если не хотим учитывать уникальность, надо передать None в значение flag """
+# get_jokes(3)
+# get_jokes(5)
+print(get_jokes(9999))
+# get_jokes(3, flag=None)
+# get_jokes(5, flag=None)
+# get_jokes(15, flag=None)
