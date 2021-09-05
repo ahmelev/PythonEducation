@@ -4,3 +4,33 @@
 # >>> num_translate_adv("One")
 # "Один"
 # >>> num_translate_adv("two") "два"
+
+
+num_translate_adv = \
+    {
+        "zero": "ноль",
+        "one": "один",
+        "two": "два",
+        "three": "три",
+        "four": "четыре",
+        "five": "пять",
+        "six": "шесть",
+        "seven": "семь",
+        "eight": "восемь",
+        "nine": "девять",
+        "ten": "десять"
+    }
+
+
+def num_translate(*args):
+    if num[0].islower():
+        if str(num).lower() in num_translate_adv.keys():
+            print(num_translate_adv.get(num.lower()))
+    else:
+        if str(num).lower() in num_translate_adv.keys():
+            print(num_translate_adv.get(num.lower()).capitalize())
+
+
+num = "nine"
+
+num_translate(num)

@@ -21,9 +21,8 @@ translate_dict = \
 
 
 def num_translate(*args):
-    for i in translate_dict:
-        if num in str(i):
-            print(translate_dict.get(i, 'Значение не найдено'))
+    if num in translate_dict.keys():
+        print(translate_dict.get(num))
 
 
 num = input("Введите значение: ")
