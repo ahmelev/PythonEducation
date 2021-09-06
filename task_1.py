@@ -20,11 +20,9 @@ translate_dict = \
     }
 
 
-def num_translate(*args):
-    if num in translate_dict.keys():
+def num_translate(num):
+    if num in translate_dict:
         print(translate_dict.get(num))
 
 
-num = input("Введите значение: ")
-
-num_translate(num)
+num_translate(input("Введите значение: "))

@@ -22,15 +22,13 @@ num_translate_adv = \
     }
 
 
-def num_translate(*args):
+def num_translate(num):
     if num[0].islower():
-        if str(num).lower() in num_translate_adv.keys():
-            print(num_translate_adv.get(num.lower()))
+        if num in num_translate_adv:
+            print(num_translate_adv.get(num))
     else:
-        if str(num).lower() in num_translate_adv.keys():
+        if num.lower() in num_translate_adv:
             print(num_translate_adv.get(num.lower()).capitalize())
 
 
-num = input("Введите значение: ")
-
-num_translate(num)
+num_translate(input("Введите значение: "))
