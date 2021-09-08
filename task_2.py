@@ -9,32 +9,16 @@
 
 from requests import get, utils
 
-
-# def currency_rates():
-#     pass
-
-
 response = get('http://www.cbr.ru/scripts/XML_daily.asp')
 encodings = utils.get_encoding_from_headers(response.headers)
 content = response.content.decode(encoding=encodings).split("</Value></Valute>")
-# print(content)
 
 
 def currency_rates(currency):
     for i in content:
         one_content = i
         if one_content.find(currency) > 0:
-            # print(i.find("<Value>"))
-            # print(i[i.find("<Value>")+7:])
-            # print(one_content)
             return i[i.find("<Value>")+7:]
-
-
-# for i, v in enumerate(content):
-#     if currency in content[i][v]:
-#         print(content[i].find("<Value>"))
-#         print(str(content[i])[content[i].find("<Value>")+7:])
-#         print(content[i])
 
 
 print(currency_rates(input("Введите код валюты: ")))
