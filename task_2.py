@@ -21,4 +21,4 @@ def currency_rates(currency):
             return i[i.find("<Value>")+7:]
 
 
-print(currency_rates(input("Введите код иностранной валюты: ")))
+print(currency_rates(input("Введите код валюты: ")))
