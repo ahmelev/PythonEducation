@@ -24,9 +24,10 @@ def currency_rates(currency):
     for i in content:
         one_content = i
         if one_content.find(currency) > 0:
-            print(i.find("<Value>"))
-            print(i[i.find("<Value>")+7:])
-            print(one_content)
+            # print(i.find("<Value>"))
+            # print(i[i.find("<Value>")+7:])
+            # print(one_content)
+            return i[i.find("<Value>")+7:]
 
 
 # for i, v in enumerate(content):
