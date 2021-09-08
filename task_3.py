@@ -22,7 +22,6 @@ def currency_rates(currency):
             return Decimal(i[i.find("<Value>")+7:].replace(",", "."))
 
 
-# print(currency_rates(input("Введите один код валюты: ")))
 print(f" Курс запрашиваемой валюты = {currency_rates('eur')} на {currency_date}")
 print(f" Курс запрашиваемой валюты = {currency_rates('usd')} на {currency_date}")
 print(f" Курс запрашиваемой валюты = {currency_rates('sdgsd')} на {currency_date}")
