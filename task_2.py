@@ -7,8 +7,24 @@
 # аргумента передали код валюты, которого нет в ответе, вернуть None. Можно ли сделать работу функции не зависящей от
 # того, в каком регистре был передан аргумент? В качестве примера выведите курсы доллара и евро.
 
-def currency_rates():
-    pass
+from requests import get, utils
 
 
-print(input("Введите код валюты: "))
+# def currency_rates():
+#     pass
+
+
+response = get('http://www.cbr.ru/scripts/XML_daily.asp')
+encodings = utils.get_encoding_from_headers(response.headers)
+content = response.content.decode(encoding=encodings).split("</Value></Valute>")
+# print(content)
+
+for i, v in enumerate(content):
+    if content[i].find("AUD"):
+        print(content[i].find("<Value>"))
+        print(str(content[i])[content[i].find("<Value>")+7:])
+        print(content[i])
+
+
+
+# print(input("Введите код валюты: "))
