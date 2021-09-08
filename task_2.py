@@ -8,6 +8,7 @@
 # того, в каком регистре был передан аргумент? В качестве примера выведите курсы доллара и евро.
 
 from requests import get, utils
+from decimal import Decimal
 
 response = get('http://www.cbr.ru/scripts/XML_daily.asp')
 encodings = utils.get_encoding_from_headers(response.headers)
@@ -18,7 +19,11 @@ def currency_rates(currency):
     for i in content:
         one_content = i
         if one_content.find(currency.upper()) > 0:
-            return i[i.find("<Value>")+7:]
+            rub = i[i.find("<Value>")+7:].replace(",", ".")
+            return Decimal(rub)
 
 
-print(currency_rates(input("Введите один код валюты: ")))
+# print(currency_rates(input("Введите один код валюты: ")))
+print(currency_rates("eur"))
+print(currency_rates("usd"))
+print(currency_rates("sdgsd"))
