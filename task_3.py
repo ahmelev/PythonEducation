@@ -13,7 +13,8 @@ response = get('http://www.cbr.ru/scripts/XML_daily.asp')
 encodings = utils.get_encoding_from_headers(response.headers)
 content = response.content.decode(encoding=encodings).split("</Value></Valute>")
 
-currency_date = datetime.strptime(content[0][content[0].find("Date")+6:content[0].find("Date")+16], "%d.%m.%Y").date().strftime(f"%d %B %Y")
+currency_date = datetime.strptime(content[0][content[0].find("Date") + 6:content[0].find("Date") + 16],
+                                  "%d.%m.%Y").date().strftime(f"%d %B %Y")
 
 
 def currency_rates(currency):
