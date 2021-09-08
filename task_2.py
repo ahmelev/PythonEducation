@@ -17,8 +17,8 @@ content = response.content.decode(encoding=encodings).split("</Value></Valute>")
 def currency_rates(currency):
     for i in content:
         one_content = i
-        if one_content.find(currency) > 0:
+        if one_content.find(currency.upper()) > 0:
             return i[i.find("<Value>")+7:]
 
 
-print(currency_rates(input("Введите код валюты: ")))
+print(currency_rates(input("Введите один код валюты: ")))
