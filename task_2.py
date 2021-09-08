@@ -19,12 +19,21 @@ encodings = utils.get_encoding_from_headers(response.headers)
 content = response.content.decode(encoding=encodings).split("</Value></Valute>")
 # print(content)
 
-for i, v in enumerate(content):
-    if content[i].find("AUD"):
-        print(content[i].find("<Value>"))
-        print(str(content[i])[content[i].find("<Value>")+7:])
-        print(content[i])
+
+def currency_rates(currency):
+    for i in content:
+        one_content = i
+        if one_content.find(currency) > 0:
+            print(i.find("<Value>"))
+            print(i[i.find("<Value>")+7:])
+            print(one_content)
 
 
+# for i, v in enumerate(content):
+#     if currency in content[i][v]:
+#         print(content[i].find("<Value>"))
+#         print(str(content[i])[content[i].find("<Value>")+7:])
+#         print(content[i])
 
-# print(input("Введите код валюты: "))
+
+print(currency_rates(input("Введите код валюты: ")))
