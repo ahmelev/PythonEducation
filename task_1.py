@@ -16,10 +16,12 @@ my_real_list = []
 
 with open("nginx_logs.txt", "r", encoding="utf-8") as f:
     for line in f.readlines():
-        remote_addr = line[:line.find(" ")]
-        request_type = line[line.find('"')+1: line.find(" /")]
-        requested_resource = line[line.find(' /')+1: line.find(" HTTP")]
-        my_list = remote_addr, request_type, requested_resource
+        my_list = line[:line.find(" ")], line[line.find('"')+1: line.find(" /")], line[line.find(' /')+1: line.find(" HTTP")]
         my_real_list.append(my_list)
 
 print(my_real_list)
+
+""" Это на подумать """
+# with open("nginx_logs.txt", "r", encoding="utf-8") as f:
+#     my_list = ((line[:line.find(" ")], line[line.find('"')+1: line.find(" /")], line[line.find(' /')+1: line.find(" HTTP")]) for line in f.readlines())
+#     my_real_list.append(my_list)
