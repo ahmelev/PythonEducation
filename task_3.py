@@ -12,6 +12,7 @@
 # Фрагмент файла с данными о хобби (hobby.csv):
 # скалолазание,охота
 # горные лыжи
+
 from itertools import zip_longest
 
 users = []
@@ -21,14 +22,14 @@ with open("users.csv", "r", encoding="utf-8") as u:
     for line in u.readlines():
         users.append(line.replace("\n", ""))
 
-print(users)
 
 with open("hobby.csv", "r", encoding="utf-8") as h:
     for line in h.readlines():
         hobby.append(line.replace("\n", ""))
 
-print(hobby)
 
 users_hobby = dict(zip_longest(users, hobby[:len(users)]))
 
-print(users_hobby)
+
+with open("users-hobby.csv", "w", encoding="utf-8") as uh:
+    uh.writelines(str(users_hobby))
