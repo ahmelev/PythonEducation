@@ -8,4 +8,9 @@
 #
 # запуск скрипта с двумя числами — выводить записи, начиная с номера, равного первому числу, по номер,
 # равный второму числу, включительно.
+from sys import argv
 
+_, money = argv
+
+with open("ballance.txt", "w", encoding="utf-8") as m:
+    m.writelines(f"{money}\n")
