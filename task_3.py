@@ -13,3 +13,17 @@
 # скалолазание,охота
 # горные лыжи
 
+users = []
+hobby = []
+
+with open("users.csv", "r", encoding="utf-8") as u:
+    for line in u.readlines():
+        users.append(line.replace("\n", ""))
+
+print(users)
+
+with open("hobby.csv", "r", encoding="utf-8") as h:
+    for line in h.readlines():
+        hobby.append(line.replace("\n", ""))
+
+print(hobby)

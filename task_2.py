@@ -11,7 +11,6 @@ my_real_list = []
 
 with open("nginx_logs.txt", "r", encoding="utf-8") as f:
     for line in f.readlines():
-        my_list = line[:line.find(" ")]
-        my_real_list.append(my_list)
+        my_real_list.append(line[:line.find(" ")])
 spammer = Counter(my_real_list).most_common()
 print(spammer[0])
