@@ -8,9 +8,11 @@
 #
 # запуск скрипта с двумя числами — выводить записи, начиная с номера, равного первому числу, по номер,
 # равный второму числу, включительно.
+""" тут находится первый скрипт для добавления, второй скрипт в task_7.py - для считывания """
 from sys import argv
 
 _, money = argv
 
-with open("ballance.txt", "w", encoding="utf-8") as m:
+with open("ballance.txt", "r+", encoding="utf-8") as m:
+    m.read()
     m.writelines(f"{money}\n")
