@@ -22,6 +22,6 @@ with open("nginx_logs.txt", "r", encoding="utf-8") as f:
 print(my_real_list)
 
 """ Это на подумать """
-# with open("nginx_logs.txt", "r", encoding="utf-8") as f:
-#     my_list = ((line[:line.find(" ")], line[line.find('"')+1: line.find(" /")], line[line.find(' /')+1: line.find(" HTTP")]) for line in f.readlines())
-#     my_real_list.append(my_list)
+# with open("nginx_logs.txt", "r", encoding="utf-8") as f: my_list = ((line[:line.find(" ")], line[line.find('"')+1:
+# line.find(" /")], line[line.find(' /')+1: line.find(" HTTP")]) for line in f.readlines()) my_real_list.append(
+# my_list)
