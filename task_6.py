@@ -15,4 +15,4 @@ _, money = argv
 
 with open("ballance.txt", "r+", encoding="utf-8") as m:
     m.read()
-    m.writelines(f"{money}\n")
+    m.writelines(money)
