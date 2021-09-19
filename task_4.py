@@ -5,3 +5,25 @@
 # Подумать, какие могут возникнуть проблемы при парсинге. В словаре должны храниться данные, полученные в результате
 # парсинга.
 
+from itertools import zip_longest
+
+users = []
+hobby = []
+
+
+with open("users.csv", "r", encoding="utf-8") as u:
+    for line in u.readlines():
+        users.append(line.replace("\n", "").replace(",", " "))
+
+
+with open("hobby.csv", "r", encoding="utf-8") as h:
+    for line in h.readlines():
+        hobby.append(line.replace("\n", ""))
+
+if len(users) >= len(hobby):
+    users_hobby = dict(zip_longest(users, hobby[:len(users)]))
+    with open("users-hobby.csv", "w", encoding="utf-8") as uh:
+        uh.writelines(f"{users_hobby} \n")
+else:
+    exit(1)
+
