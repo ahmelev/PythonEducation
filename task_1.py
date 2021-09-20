@@ -11,5 +11,19 @@
 # можно ли будет при этом расширять конфигурацию и хранить данные о вложенных папках и файлах (добавлять детали)?
 
 import os
+path = r'/Users/aleksandrhmelev/PycharmProjects/PythonEducation'
+project_name = 'my_project'
+folders = ['settings', 'mainapp', 'adminapp', 'authapp']
 
-print(os.listdir())
+
+def crate_folder(path):
+    if not os.path.exists(path):
+        os.mkdir(path)
+
+
+fullPath = os.path.join(path, project_name)
+crate_folder(fullPath)
+
+for i in folders:
+    folder = os.path.join(fullPath, i)
+    crate_folder(folder)
