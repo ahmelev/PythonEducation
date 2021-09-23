@@ -15,4 +15,15 @@
 # расположены в родительских папках (они играют роль пространств имён); предусмотреть возможные исключительные
 # ситуации; это реальная задача, которая решена, например, во фреймворке django.
 
-# работаем шутилом и вок который проходит внутрь
+import os
+import shutil
+
+project_name = "my_project"
+
+try:
+    for root, dirs, files in os.walk(project_name):
+        if "templates" in dirs and root != project_name:
+            for i in os.listdir(os.path.join(root, "templates")):
+                shutil.copytree(os.path.join(root, "templates", i), os.path.join(project_name, "templates", i))
+except FileExistsError:
+    print("Дирректория 'templates' уже создана!")
