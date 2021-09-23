@@ -18,18 +18,19 @@
 # >>> a = calc_cube(5)
 # calc_cube(5: <class 'int'>)
 
+from functools import wraps
+
+
 def type_logger(func):
     print(func)
 
+    @wraps(func)
     def real_logger(*args, **kwargs):
         print("args", args)
         print("kwargs", kwargs)
-        for a in args:
+        for a in (*args, *kwargs.values()):
             type_value = func(a)
-            print(f'{a}: {type(a)}')
-        for k, w in kwargs.items():
-            type_value = func(w)
-            print(f'{w}: {type(w)}')
+            print(f'{func.__name__}({a}: {type(a)})')
         return type_value
 
     return real_logger
@@ -37,7 +38,7 @@ def type_logger(func):
 
 @type_logger
 def calc_cube(x):
-    return x ** 3
+    return x
 
 
 calc_cube(8, 6, one="8844", two="443")
