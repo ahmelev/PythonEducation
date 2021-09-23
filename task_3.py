@@ -41,4 +41,4 @@ def calc_cube(x):
     return x
 
 
-calc_cube(8, 6, one="8844", two="443")
+calc_cube(8, {"a": 33, "b": 55}, ("uyh", 4545, "fg"), [4, 7, 9], one="8844", two="443")
