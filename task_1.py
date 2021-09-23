@@ -10,3 +10,8 @@
 
 # Задачу можно усложнить, реализовав проверку порядка режимов. При его нарушении выводить соответствующее сообщение и
 # завершать скрипт.
+#
+# https://all-python.ru/osnovy/tsvetnoj-vyvod-teksta.html
+# https://en.wikipedia.org/wiki/ANSI_escape_code
+# https://stackoverflow.com/questions/287871/how-to-print-colored-text-in-terminal-in-python
+# turtle или PyQT5 - библиотека для рисования
