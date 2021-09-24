@@ -8,6 +8,9 @@
 # классов, передайте значения атрибутов. Выполните доступ к атрибутам, выведите результат. Вызовите методы и покажите
 # результат.
 
+import random
+
+
 class Car:
 
     def __init__(self, speed, color, name, is_police):
@@ -17,22 +20,48 @@ class Car:
         self.is_police = is_police
 
     def go(self):
-        pass
+        return f'{self.name} начал движение'
 
     def stop(self):
-        pass
+        return f'{self.name} прекратил движение'
 
-    def turn(self, direction):
-        pass
+    def turn(self):
+        direction = ["право", "лево"]
+        return f'{self.name} повернул на {random.choice(direction)}'
+
+    def show_speed(self):
+        return f'Текущая скорость {self.name} - {self.speed} км/ч'
+
 
 class TownCar(Car):
-    pass
+    def __init__(self, speed, color, name, is_police):
+        super().__init__(self, speed, color, name, is_police)
+
+    def show_speed(self):
+        pass
+
 
 class SportCar(Car):
-    pass
+    def __init__(self, speed, color, name, is_police):
+        super().__init__(self, speed, color, name, is_police)
+
 
 class WorkCar(Car):
-    pass
+    def __init__(self, speed, color, name, is_police):
+        super().__init__(self, speed, color, name, is_police)
+
+    def show_speed(self):
+        pass
+
 
 class PoliceCar(Car):
-    pass
+    def __init__(self, speed, color, name, is_police):
+        super().__init__(self, speed, color, name, is_police)
+
+
+town_car_1 = TownCar(50, "blue", "Taxi", False)
+town_car_2 = TownCar(70, "black", "Autobuss", False)
+sport_car = SportCar(100, "red", "Sport", False)
+work_car_1 = WorkCar(30, "green", "Avtomoika", False)
+work_car_2 = WorkCar(50, "yellow", "Snowcliner", False)
+police_car = PoliceCar(90, "police_color", "Police car", True)
