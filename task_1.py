@@ -15,3 +15,25 @@
 # https://en.wikipedia.org/wiki/ANSI_escape_code
 # https://stackoverflow.com/questions/287871/how-to-print-colored-text-in-terminal-in-python
 # turtle или PyQT5 - библиотека для рисования
+from time import sleep
+
+
+class TrafficLight:
+    __color = ["красный", "жёлтый", "зелёный"]
+
+    def running(self):
+        pass
+
+    def running(self):
+        for i in range(len(self.__color)):
+            print(f'Сигнал сфетофора - {TrafficLight.__color[i]}')
+            if i == 0:
+                sleep(7)
+            elif i == 1:
+                sleep(5)
+            elif i == 2:
+                sleep(3)
+
+
+trafficlight = TrafficLight()
+trafficlight.running()
