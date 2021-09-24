@@ -18,3 +18,29 @@
 #     raise ValueError(msg)
 # ValueError: wrong val -5
 # Примечание: сможете ли вы замаскировать работу декоратора?
+
+import functools
+
+
+def val_checker(check_func):
+    def real_val_checker(func):
+
+        @functools.wraps(func)
+        def checker(num):
+            if check_func(num):
+                print(func(num))
+            else:
+                raise ValueError(f'Введено некорректное число {num}')
+
+        return checker
+
+    return real_val_checker
+
+
+@val_checker(lambda x: x > 0)
+def calc_cube(x):
+    return x ** 3
+
+
+a = calc_cube(5)
+b = calc_cube(-5)
