@@ -19,15 +19,17 @@
 # ValueError: wrong val -5
 # Примечание: сможете ли вы замаскировать работу декоратора?
 
+""" Задача выполнена только после просмотра решения, не додумался что лямбда это тоже функция и ее надо обработать"""
+
 import functools
 
 
-def val_checker(check_func):
+def val_checker(lambda_func):
     def real_val_checker(func):
 
         @functools.wraps(func)
         def checker(num):
-            if check_func(num):
+            if lambda_func(num):
                 print(func(num))
             else:
                 raise ValueError(f'Введено некорректное число {num}')
