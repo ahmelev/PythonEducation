@@ -7,3 +7,32 @@
 # скорости свыше 60 (TownCar) и 40 (WorkCar) должно выводиться сообщение о превышении скорости. Создайте экземпляры
 # классов, передайте значения атрибутов. Выполните доступ к атрибутам, выведите результат. Вызовите методы и покажите
 # результат.
+
+class Car:
+
+    def __init__(self, speed, color, name, is_police):
+        self.speed = speed
+        self.color = color
+        self.name = name
+        self.is_police = is_police
+
+    def go(self):
+        pass
+
+    def stop(self):
+        pass
+
+    def turn(self, direction):
+        pass
+
+class TownCar(Car):
+    pass
+
+class SportCar(Car):
+    pass
+
+class WorkCar(Car):
+    pass
+
+class PoliceCar(Car):
+    pass

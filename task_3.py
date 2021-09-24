@@ -14,7 +14,7 @@ class Worker:
         self.name = name
         self.surname = surname
         self.position = position
-        self.income = {"wage": wage, "bonus": bonus}
+        self._income = {"wage": wage, "bonus": bonus}
 
 class Position(Worker):
 
@@ -27,7 +27,7 @@ class Position(Worker):
 
 
     def get_total_income(self):
-        return f'доход {sum(self.income.values())} деревянных'
+        return f'доход {sum(self._income.values())} деревянных'
 
 
 a = Position("Ivan", "Ivanov", "Director", 40000, 10000)
