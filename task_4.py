@@ -35,28 +35,34 @@ class Car:
 
 class TownCar(Car):
     def __init__(self, speed, color, name, is_police):
-        super().__init__(self, speed, color, name, is_police)
+        super().__init__(speed, color, name, is_police)
 
     def show_speed(self):
-        pass
+        if self.speed > 60:
+            return f'{self.name} превышает скоростной режим'
+        else:
+            return f'{super().show_speed()}'
 
 
 class SportCar(Car):
     def __init__(self, speed, color, name, is_police):
-        super().__init__(self, speed, color, name, is_police)
+        super().__init__(speed, color, name, is_police)
 
 
 class WorkCar(Car):
     def __init__(self, speed, color, name, is_police):
-        super().__init__(self, speed, color, name, is_police)
+        super().__init__(speed, color, name, is_police)
 
     def show_speed(self):
-        pass
+        if self.speed > 40:
+            return f'{self.name} превышает скоростной режим'
+        else:
+            return f'{super().show_speed()}'
 
 
 class PoliceCar(Car):
     def __init__(self, speed, color, name, is_police):
-        super().__init__(self, speed, color, name, is_police)
+        super().__init__(speed, color, name, is_police)
 
 
 town_car_1 = TownCar(50, "blue", "Taxi", False)
@@ -65,3 +71,45 @@ sport_car = SportCar(100, "red", "Sport", False)
 work_car_1 = WorkCar(30, "green", "Avtomoika", False)
 work_car_2 = WorkCar(50, "yellow", "Snowcliner", False)
 police_car = PoliceCar(90, "police_color", "Police car", True)
+
+print(f'{town_car_1.name}, {town_car_1.color}, полицейская машина? - {"Нет" if town_car_1.is_police == False else "Да"}')
+print(town_car_1.go())
+print(town_car_1.show_speed())
+print(town_car_1.turn())
+print(town_car_1.stop())
+print("*" * 30)
+
+print(f'{town_car_2.name}, {town_car_2.color}, полицейская машина? - {"Нет" if town_car_2.is_police == False else "Да"}')
+print(town_car_2.go())
+print(town_car_2.show_speed())
+print(town_car_2.turn())
+print(town_car_2.stop())
+print("*" * 30)
+
+print(f'{sport_car.name}, {sport_car.color}, полицейская машина? - {"Нет" if sport_car.is_police == False else "Да"}')
+print(sport_car.go())
+print(sport_car.show_speed())
+print(sport_car.turn())
+print(sport_car.stop())
+print("*" * 30)
+
+print(f'{work_car_1.name}, {work_car_1.color}, полицейская машина? - {"Нет" if work_car_1.is_police == False else "Да"}')
+print(work_car_1.go())
+print(work_car_1.show_speed())
+print(work_car_1.turn())
+print(work_car_1.stop())
+print("*" * 30)
+
+print(f'{work_car_2.name}, {work_car_2.color}, полицейская машина? - {"Нет" if work_car_2.is_police == False else "Да"}')
+print(work_car_2.go())
+print(work_car_2.show_speed())
+print(work_car_2.turn())
+print(work_car_2.stop())
+print("*" * 30)
+
+print(f'{police_car.name}, {police_car.color}, полицейская машина? - {"Нет" if police_car.is_police == False else "Да"}')
+print(police_car.go())
+print(police_car.show_speed())
+print(police_car.turn())
+print(police_car.stop())
+print("*" * 30)
