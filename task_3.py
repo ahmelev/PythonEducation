@@ -7,10 +7,10 @@ class Cell:
         return str(self.cell)
 
     def __add__(self, other):
-        return Cell(abs(self.cell + other.cell))
+        return Cell(self.cell + other.cell)
 
     def __sub__(self, other):
-        return Cell(abs(self.cell - other.cell))
+        return Cell(self.cell - other.cell)
 
     def __mul__(self, other):
         return Cell(self.cell * other.cell)
