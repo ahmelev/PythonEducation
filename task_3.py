@@ -1,3 +1,46 @@
+class Cell:
+    def __init__(self, cell):
+        self.cell = cell
+        self.param = '*'
+
+    def __str__(self):
+        return str(self.cell)
+
+    def __add__(self, other):
+        return Cell(abs(self.cell + other.cell))
+
+    def __sub__(self, other):
+        return Cell(abs(self.cell - other.cell))
+
+    def __mul__(self, other):
+        return Cell(self.cell * other.cell)
+
+    def __truediv__(self, other):
+        return Cell(self.cell // other.cell)
+
+    def make_order(self, row):
+        c = self.cell
+        while c > 0:
+            for i in range(0, row):
+                print(self.param, end='')
+                c -= 1
+                if c == 0:
+                    break
+            print('\n', end='')
+
+
+a = Cell(22)
+b = Cell(11)
+
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)
+print()
+a.make_order(5)
+print()
+b.make_order(3)
+
 # Осуществить программу работы с органическими клетками, состоящими из ячеек. Необходимо создать класс «Клетка». В
 # его конструкторе инициализировать параметр, соответствующий количеству ячеек клетки (целое число). В классе должны
 # быть реализованы методы перегрузки арифметических операторов: сложение (__add__()), вычитание (__sub__()),

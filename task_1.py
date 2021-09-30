@@ -14,3 +14,29 @@
 # | 8 3 7 1 |
 
 # на 5 уроке были матрицы
+
+class Matrix:
+    def __init__(self, matrix):
+        self.matrix = matrix
+
+    def __str__(self):
+        s = ''
+        for i in range(len(self.matrix)):
+            s = s + '\t'.join(map(str, self.matrix[i])) + '\n'
+        return s
+
+
+""" непонятно зачем перегрудать метод __add__ пусть пока валяется тут """
+
+# def __add__(self, other):
+#     pass
+
+
+m1 = Matrix([[11, 20], [12, 30], [13, 40]])
+m2 = Matrix([[2, 3, 4], [5, 6, 7], [8, 9, 0]])
+m3 = Matrix([[41, 51, 61], [42, 52, 62]])
+
+list_matrix = [m1, m2, m3]
+
+for i in list_matrix:
+    print(i)

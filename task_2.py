@@ -9,30 +9,35 @@
 # Выполнить общий подсчёт расхода ткани. Проверить на практике полученные на этом уроке знания. Реализовать
 # абстрактные классы для основных классов проекта и проверить работу декоратора @property.
 
-class WindowDoor:
-    def __init__(self, wd_len, wd_height):
-        self.square = wd_len * wd_height
+from abc import ABC, abstractmethod
 
 
-class Room:
-    def __init__(self, len_1, len_2, height):
-        self.square = 2 * height * (len_1 + len_2)
-        self.wd = []
+class Clothes(ABC):
 
-    def add_win_door(self, wd_len, wd_height):
-        self.wd.append(WindowDoor(wd_len, wd_height))
+    def __init__(self, param):
+        self.param = param
 
-    def common_square(self):
-        main_square = self.square
-        for el in self.wd:
-            main_square -= el.square
-        return main_square
+    @abstractmethod
+    def expense(self):
+        pass
 
 
-r = Room(7, 4, 3.7)
-print(r.square)
+class Coat(Clothes):
 
-r.add_win_door(2, 2)
-r.add_win_door(2, 2)
-r.add_win_door(2, 2)
-print(r.common_square())
+    @property
+    def expense(self):
+        return self.param / 6.5 + 0.5
+
+
+class Suit(Clothes):
+
+    @property
+    def expense(self):
+        return 2 * self.param + 0.3
+
+
+coat = Coat(54)
+suit = Suit(1.84)
+print(coat.expense)
+print(suit.expense)
+print(coat.expense + suit.expense)
