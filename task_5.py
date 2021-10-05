@@ -22,9 +22,7 @@ class OfficeEquipment:
 class Printer(OfficeEquipment):
 
     def __init__(self, name, price, quantity, speed_print):
-        self.name = name
-        self.price = price
-        self.quantity = quantity
+        super().__init__(name, price, quantity)
         self.speed_print = speed_print
 
     def to_print(self):
@@ -34,9 +32,7 @@ class Printer(OfficeEquipment):
 class Scanner(OfficeEquipment):
 
     def __init__(self, name, price, quantity, speed_scan):
-        self.name = name
-        self.price = price
-        self.quantity = quantity
+        super().__init__(name, price, quantity)
         self.speed_scan = speed_scan
 
     def to_scan(self):
@@ -46,9 +42,7 @@ class Scanner(OfficeEquipment):
 class Copier(OfficeEquipment):
 
     def __init__(self, name, price, quantity, size):
-        self.name = name
-        self.price = price
-        self.quantity = quantity
+        super().__init__(name, price, quantity)
         self.size = size
 
     def to_copier(self):
