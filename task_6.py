@@ -26,9 +26,6 @@ class Printer(OfficeEquipment):
         super().__init__(name, price, quantity)
         self.speed_print = speed_print
 
-    def to_print(self):
-        return f'Печатает {self.speed_print} листов в минуту'
-
 
 class Scanner(OfficeEquipment):
 
@@ -36,15 +33,9 @@ class Scanner(OfficeEquipment):
         super().__init__(name, price, quantity)
         self.speed_scan = speed_scan
 
-    def to_scan(self):
-        return f'Сканирует {self.speed_scan} листов в минуту'
-
 
 class Copier(OfficeEquipment):
 
     def __init__(self, name, price, quantity, size):
         super().__init__(name, price, quantity)
         self.size = size
-
-    def to_copier(self):
-        return f'Ксерокс  {self.size}'
