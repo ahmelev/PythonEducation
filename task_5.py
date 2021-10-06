@@ -60,7 +60,7 @@ class Copier(OfficeEquipment):
         return f'{self.name} {self.price} {self.size}'
 
 
-# создаем объекты
+""" создаем объекты """
 printer_hp = Printer("HP", 3940.40, 100)
 printer_xerox = Printer("Xerox", 2500.80, 95)
 printer_epson = Printer("Epson", 3000.00, 90)
@@ -75,14 +75,18 @@ subdivision_one = Storage("Подразделение 1")
 subdivision_two = Storage("Подразделение 2")
 subdivision_three = Storage("Подразделение 3")
 
+""" для удобства помещения их на склад запихиваем в одну переменную """
 all_office_equipment = (printer_hp, printer_xerox, printer_epson, scanner_hp, scanner_xerox, scanner_epson, copier_hp,
                         copier_xerox, copier_epson)
-
+""" собственно помещаем на склад """
 for i in all_office_equipment:
     basic_storage.reception(i)
 
+""" смотрим что на складе """
 print(basic_storage.my_store)
 print()
+
+""" перемещаем по типу оборудования первую в списке единицу техники в подразделение компании и выводим результат """
 basic_storage.transfer('Scanner', subdivision_one)
 print()
 print(basic_storage.my_store)
@@ -100,4 +104,3 @@ print()
 print(basic_storage.my_store)
 print()
 print(subdivision_three.my_store)
-
