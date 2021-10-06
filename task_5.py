@@ -61,7 +61,7 @@ class Copier(OfficeEquipment):
 
 
 """ создаем объекты """
-printer_hp = Printer("HP", 3940.40, 100)
+printer_hp = Printer("HP", 3600, 100)
 printer_xerox = Printer("Xerox", 2500.80, 95)
 printer_epson = Printer("Epson", 3000.00, 90)
 scanner_hp = Scanner("HP", 2600.50, 6)
