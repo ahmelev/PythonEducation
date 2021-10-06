@@ -16,6 +16,9 @@ class Storage:
         if self.my_store[type]:
             store.my_store.setdefault(type, []).append(self.my_store.setdefault(type).pop(0))
 
+    def __str__(self):
+        return f'В {self.name} на данный момент находится следующее оборудование: {self.my_store}'
+
 
 class OfficeEquipment:
 
@@ -62,7 +65,7 @@ class Copier(OfficeEquipment):
 
 
 """ создаем объекты """
-printer_hp = Printer("HP", 3940.40, 100)
+printer_hp = Printer("HP", 3600, 100)
 printer_xerox = Printer("Xerox", 2500.80, 95)
 printer_epson = Printer("Epson", 3000.00, 90)
 scanner_hp = Scanner("HP", 2600.50, 6)
@@ -84,24 +87,22 @@ for i in all_office_equipment:
     basic_storage.reception(i)
 
 """ смотрим что на складе """
-print(basic_storage.my_store)
+print(basic_storage)
 print()
-
 """ перемещаем по типу оборудования первую в списке единицу техники в подразделение компании и выводим результат """
 basic_storage.transfer('Scanner', subdivision_one)
+print("Передаем сканер")
+print(subdivision_one)
+print(basic_storage)
 print()
-print(basic_storage.my_store)
-print()
-print(subdivision_one.my_store)
 
 basic_storage.transfer('Copier', subdivision_two)
+print("Передаем ксерокс")
+print(subdivision_two)
+print(basic_storage)
 print()
-print(basic_storage.my_store)
-print()
-print(subdivision_two.my_store)
 
 basic_storage.transfer('Printer', subdivision_three)
-print()
-print(basic_storage.my_store)
-print()
-print(subdivision_three.my_store)
+print("Передаем принтер")
+print(subdivision_three)
+print(basic_storage)
