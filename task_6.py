@@ -24,7 +24,10 @@ class OfficeEquipment:
 
     def __init__(self, name, price):
         self.name = name
-        self.price = price
+        try:
+            self.price = int(price)
+        except ValueError:
+            raise "Введено не число"
         self.group = self.__class__.__name__
 
     def __repr__(self):
@@ -65,7 +68,7 @@ class Copier(OfficeEquipment):
 
 
 """ создаем объекты """
-printer_hp = Printer("HP", 3600, 100)
+printer_hp = Printer("HP", 2600.00, 100)
 printer_xerox = Printer("Xerox", 2500.80, 95)
 printer_epson = Printer("Epson", 3000.00, 90)
 scanner_hp = Scanner("HP", 2600.50, 6)
